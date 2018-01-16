@@ -5,11 +5,12 @@ import {Car} from '../models/car';
 export class CarService {
 
     private cars: Car = [];
+    private idCount = 1;
 
     constructor() {
         this.cars = [
             {
-                id: 1,
+                id: this.idCountSet(),
                 mark: 'Fića',
                 model: '750',
                 year: '1990',
@@ -19,7 +20,7 @@ export class CarService {
                 numberOfDoors: 2
             },
             {
-                id: 2,
+                id: this.idCountSet(),
                 mark: 'Jugo',
                 model: '45',
                 year: '1989',
@@ -29,7 +30,7 @@ export class CarService {
                 numberOfDoors: 4
             },
             {
-                id: 3,
+                id: this.idCountSet(),
                 mark: 'Hyndai',
                 model: 'Accent',
                 year: '2007',
@@ -44,6 +45,17 @@ export class CarService {
 
     public getCars() {
         return this.cars;
+    }
+
+    public addCar(car) {
+
+        car['id'] = this.idCountSet();
+        this.cars.push(car);
+
+    }
+
+    public idCountSet() {
+        return this.idCount++;
     }
 
 

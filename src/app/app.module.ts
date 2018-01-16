@@ -7,10 +7,13 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { CarsComponent } from './components/cars/cars.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {CarService} from './services/car.service';
+import { CarFormComponent } from './components/car-form/car-form.component';
+import {FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
     {path: '', component: CarsComponent},
     {path: 'cars', component: CarsComponent},
+    {path: 'cars/add', component: CarFormComponent},
     {path: 'cars/:id', component: CarsComponent}
 ];
 
@@ -19,13 +22,15 @@ const appRoutes: Routes = [
     AppComponent,
     LayoutComponent,
     CarsComponent,
-    NavbarComponent
+    NavbarComponent,
+    CarFormComponent
   ],
   imports: [
       RouterModule.forRoot(
           appRoutes // <-- our constant from previous slide
       ),
-      BrowserModule
+      BrowserModule,
+      FormsModule
   ],
   providers: [CarService],
   bootstrap: [AppComponent]
