@@ -29,17 +29,32 @@
     </div>
     <div class="form-group">
       <label>Number of doors</label>
-      <input [(ngModel)]="car.numberOfDoors" name="numberOfDoors" type="text" class="form-control" required>
+      <input #numberOfDoors="ngModel" [(ngModel)]="car.numberOfDoors" name="numberOfDoors" type="text" class="form-control" required>
+      <div *ngIf="numberOfDoors.invalid && (numberOfDoors.dirty || numberOfDoors.touched)"
+           class="alert alert-danger">
+        <div *ngIf="numberOfDoors.errors.required">
+          Number Of Doors is required.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label>Max Speed</label>
-      <input [(ngModel)]="car.maxSpeed" name="maxSpeed" type="text" class="form-control" required>
+      <input #maxSpeed="ngModel" [(ngModel)]="car.maxSpeed" name="maxSpeed" type="text" class="form-control" required>
+      <div *ngIf="maxSpeed.invalid && (maxSpeed.dirty || maxSpeed.touched)"
+           class="alert alert-danger">
+        <div *ngIf="maxSpeed.errors.required">
+          Max Speed is required.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label>Year</label>
-      <select [(ngModel)]="car.year" name="year" class="form-control" required>
+      <select #year="ngModel" [(ngModel)]="car.year" name="year" class="form-control" required>
         <option *ngFor="let year of years">{{ year }}</option>
       </select>
+      <div class="alert alert-danger" *ngIf="!year.dirty && carForm.dirty">
+        Year is required.
+      </div>
     </div>
     <div class="form-group">
       <label>Engine:</label>
