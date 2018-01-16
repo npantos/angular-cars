@@ -29,6 +29,11 @@ export class CarFormComponent implements OnInit {
 
     }
 
+    previewForm() {
+        alert(JSON.stringify(this.car, null, 4));
+
+    }
+
     ngOnInit() {
     }
 
