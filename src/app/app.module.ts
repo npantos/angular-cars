@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { CarsComponent } from './components/cars/cars.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import {CarService} from './services/car.service';
 
 const appRoutes: Routes = [
     {path: '', component: CarsComponent},
@@ -26,7 +27,7 @@ const appRoutes: Routes = [
       ),
       BrowserModule
   ],
-  providers: [],
+  providers: [CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
