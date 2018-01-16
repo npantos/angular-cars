@@ -52,7 +52,7 @@
       <select #year="ngModel" [(ngModel)]="car.year" name="year" class="form-control" required>
         <option *ngFor="let year of years">{{ year }}</option>
       </select>
-      <div class="alert alert-danger" *ngIf="!year.dirty && carForm.dirty">
+      <div class="alert alert-danger" *ngIf="!year.dirty && carForm.dirty && year.empty">
         Year is required.
       </div>
     </div>
@@ -80,7 +80,7 @@
     </div>
 
     <div class="input-group col-md-5 pl-0 my-lg-4 my-2">
-      <button type="submit" class="btn btn-primary mr-2" [disabled]="carForm.form.invalid">Add car</button>
+      <button type="submit" class="btn btn-primary mr-2" [disabled]="carForm.form.invalid">Submit</button>
       <button type="reset" class="btn btn-danger mr-2">Reset</button>
       <button type="button" (click)="previewForm()" class="btn btn-default mr-2">Preview</button>
     </div>

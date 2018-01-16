@@ -14,17 +14,27 @@ export class CarFormComponent implements OnInit {
     private car: Car;
     private years = [];
 
-    constructor(private _cars: CarService, private _route: Router) {
+    constructor(private _cars: CarService, private _route: Router, private _activated: ActivatedRoute) {
         for (let i = 1990; i <= 2018; i++) {
             this.years.push(i);
         }
         this.car = new Car();
 
+        this._activated.params.subscribe((params) => {
+            this.car = _cars.getOneCar(+params['id']);
+        });
+
+
     }
 
     submit() {
 
-        this._cars.addCar(this.car);
+        if (this.car.id) {
+            this._cars.editCar(this.car);
+        } else {
+            this._cars.addCar(this.car);
+        }
+
         this._route.navigate(['/cars']);
 
     }

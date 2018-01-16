@@ -13,7 +13,7 @@ export class CarService {
                 id: this.idCountSet(),
                 mark: 'Fića',
                 model: '750',
-                year: '1990',
+                year: '1991',
                 maxSpeed: 90,
                 isAutomatic: false,
                 engine: 'diesel',
@@ -23,10 +23,10 @@ export class CarService {
                 id: this.idCountSet(),
                 mark: 'Jugo',
                 model: '45',
-                year: '1989',
+                year: '1995',
                 maxSpeed: 80,
                 isAutomatic: false,
-                engine: 'gas',
+                engine: 'petrol',
                 numberOfDoors: 4
             },
             {
@@ -36,7 +36,7 @@ export class CarService {
                 year: '2007',
                 maxSpeed: 220,
                 isAutomatic: false,
-                engine: 'gas',
+                engine: 'petrol',
                 numberOfDoors: 4
             }
         ];
@@ -53,6 +53,23 @@ export class CarService {
         this.cars.push(car);
 
     }
+
+    public editCar(car) {
+
+        this.cars.push(car);
+
+    }
+
+    public getOneCar(id){
+        let car;
+        this.cars.forEach((c) => {
+            if (c.id === id) {
+                car = c;
+            }
+        });
+        return car;
+    }
+
 
     public idCountSet() {
         return this.idCount++;
