@@ -21,7 +21,9 @@ export class CarFormComponent implements OnInit {
         this.car = new Car();
 
         this._activated.params.subscribe((params) => {
-            this.car = _cars.getOneCar(+params['id']);
+            if (_cars.getOneCar(+params['id'])) {
+                this.car = _cars.getOneCar(+params['id']);
+            }
         });
 
 

@@ -12,8 +12,7 @@ import {FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
     {path: '', component: CarsComponent},
-    {
-        path: 'cars', component: CarsComponent},
+    {path: 'cars', component: CarsComponent},
     {path: 'cars/add', component: CarFormComponent},
     {path: 'cars/edit/:id', component: CarFormComponent}
 ];
